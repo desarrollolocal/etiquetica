@@ -1,11 +1,13 @@
->Given(/^I am in the app$/) do
-  pending # express the regexp above with the code you wish you had
+
+Given(/^I am in the app$/) do
+  visit "http://localhost:3000/index.html"
 end
 
 When(/^I read the title$/) do
-  pending # express the regexp above with the code you wish you had
+  
 end
 
 Then(/^it reads 'Etiquetica'$/) do
-  pending # express the regexp above with the code you wish you had
+  page.has_title? "Etiquetica"
 end
+
