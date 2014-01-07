@@ -1,4 +1,4 @@
-Given(/^I am in the app$/) do
+>Given(/^I am in the app$/) do
   pending # express the regexp above with the code you wish you had
 end
 
