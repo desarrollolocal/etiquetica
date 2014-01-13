@@ -8,7 +8,7 @@ require 'rspec/core/rake_task'
 desc "Run server"
 
   task :serverup do
-    system "rackup -p 3000 &"
+    system "rackup -p 46308 &"
   end
 
   task :serverdown do
