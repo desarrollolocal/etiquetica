@@ -2,7 +2,6 @@ require 'rack/test' # it is needed to run rspec
 require 'capybara'
 require 'capybara/rspec'
 include Rack::Test::Methods # It contain different method like get,  last_response etc which you use to write your test
-include Capybara::DSL
 
 Capybara.default_driver = :selenium
 
@@ -16,4 +15,5 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
+  config.include Capybara::DSL, :type => :feature
 end
