@@ -20,6 +20,6 @@ desc "Run Acceptance Test"
   end
 
 desc "default"
-  task :default => [:acceptance]
-  
+  task :default => [:acceptance, "jasmine:ci"]
+
 load 'jasmine/tasks/jasmine.rake'
