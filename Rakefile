@@ -1,9 +1,9 @@
 require 'rubygems'
-require 'listen'
 
 desc "Run server"
 
   task :serverup do
+    require 'listen'
     system "rackup -p 3000 &"
     listener = Listen.to('spec/', 'features/') do |modified, added, removed|
       puts "modified absolute path: #{modified}"
