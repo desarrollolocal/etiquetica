@@ -9,8 +9,8 @@ require 'listen'
 desc "Run server"
 
   task :serverup do
-    system "rackup -p 46308 &"
-    listener = Listen.to('spec/') do |modified, added, removed|
+    system "rackup -p 3000 &"
+    listener = Listen.to('spec/', 'features/') do |modified, added, removed|
       puts "modified absolute path: #{modified}"
       puts "added absolute path: #{added}"
       puts "removed absolute path: #{removed}"
