@@ -1,7 +1,4 @@
 require 'rubygems'
-require 'jasmine'
-require 'rspec/core'
-require 'rspec/core/rake_task'
 require 'listen'
 
 desc "Run server"
@@ -31,10 +28,18 @@ begin
   end
 end
 
+begin
+  require 'rspec/core'
+  require 'rspec/core/rake_task'
+  desc "Run all specs in spec directory (excluding plugin specs)"
+    RSpec::Core::RakeTask.new(:spec)
+end
 
-
-desc "Run all specs in spec directory (excluding plugin specs)"
-  RSpec::Core::RakeTask.new(:spec)
+begin
+  desc "Run jasmine tests"
+    require 'jasmine'  
+    load 'jasmine/tasks/jasmine.rake'  
+end
 
 desc "default"
   task :default => [:acceptance, "jasmine:ci", :spec]
@@ -48,4 +53,4 @@ desc "travis"
     end
   end
 
-load 'jasmine/tasks/jasmine.rake'
+
