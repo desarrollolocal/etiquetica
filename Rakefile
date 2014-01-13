@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
-
+require 'jasmine'
 
 desc "Run server"
 
@@ -21,3 +21,5 @@ desc "Run Acceptance Test"
 
 desc "default"
   task :default => [:acceptance]
+  
+load 'jasmine/tasks/jasmine.rake'
