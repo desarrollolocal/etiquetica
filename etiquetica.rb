@@ -3,7 +3,7 @@ require 'sinatra'
 class Etiquetica < Sinatra::Base
 
   get '/' do
-    "Etiquetica runs with Sinatra"
+    erb :index
   end
   
 end
