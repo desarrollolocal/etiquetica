@@ -2,6 +2,8 @@ require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
 require 'jasmine'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
 desc "Run server"
 
@@ -19,7 +21,10 @@ desc "Run Acceptance Test"
     t.cucumber_opts = "features"
   end
 
+desc "Run all specs in spec directory (excluding plugin specs)"
+  RSpec::Core::RakeTask.new(:spec)
+
 desc "default"
-  task :default => [:acceptance, "jasmine:ci"]
+  task :default => [:acceptance, "jasmine:ci", :spec]
 
 load 'jasmine/tasks/jasmine.rake'
