@@ -27,4 +27,13 @@ desc "Run all specs in spec directory (excluding plugin specs)"
 desc "default"
   task :default => [:acceptance, "jasmine:ci", :spec]
 
+desc "travis"
+  task :travis do
+    ["rspec spec", "rake jasmine:ci", "rake acceptance"].each do |cmd|
+      puts "Starting to run #{cmd}..."
+      system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+      raise "#{cmd} failed!" unless $?.exitstatus == 0
+    end
+  end
+
 load 'jasmine/tasks/jasmine.rake'

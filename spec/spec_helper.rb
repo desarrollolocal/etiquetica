@@ -1,5 +1,6 @@
 require 'rack/test' # it is needed to run rspec
 require 'capybara'
+require 'capybara/rspec'
 include Rack::Test::Methods # It contain different method like get,  last_response etc which you use to write your test
 include Capybara::DSL
 
