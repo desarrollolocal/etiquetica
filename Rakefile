@@ -16,7 +16,7 @@ desc "Run server"
 desc "Run Acceptance Test"
 
   Cucumber::Rake::Task.new(:acceptance) do |t|
-    t.cucumber_opts = "AcceptanceTests"
+    t.cucumber_opts = "features"
   end
 
 desc "default"
