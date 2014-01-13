@@ -1,6 +1,4 @@
 require 'rubygems'
-require 'cucumber'
-require 'cucumber/rake/task'
 require 'jasmine'
 require 'rspec/core'
 require 'rspec/core/rake_task'
@@ -23,11 +21,17 @@ desc "Run server"
     system "pkill -9 -f rackup"
   end
 
-desc "Run Acceptance Test"
+begin
+  require 'cucumber'
+  require 'cucumber/rake/task'
+  desc "Run Acceptance Test"
 
   Cucumber::Rake::Task.new(:acceptance) do |t|
     t.cucumber_opts = "features"
   end
+end
+
+
 
 desc "Run all specs in spec directory (excluding plugin specs)"
   RSpec::Core::RakeTask.new(:spec)
