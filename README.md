@@ -1,7 +1,9 @@
 etiquetica
 ==========
 
-Ruby 1.9.1
+[![Build Status](https://travis-ci.org/desarrollolocal/etiquetica.png?branch=master)](https://travis-ci.org/desarrollolocal/etiquetica)
+
+Ruby 1.9.3
 
 First install Bundler
 
