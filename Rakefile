@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'cucumber'
 require 'cucumber/rake/task'
 require 'jasmine'
 require 'rspec/core'

@@ -18,12 +18,12 @@ Installing tilt (1.4.1)
 Installing sinatra (1.4.4)
 
 Rake tasks:
-<code>
-acceptance  -- run cucumber features
-default     -- default
-jasmine     -- run specs via server:ci
-jasmine:ci  -- run continuous integration tests
-serverup    -- run server
-serverdown  -- stop server
-</code>
+
+* acceptance  -- run cucumber features
+* default     -- default
+* jasmine     -- run specs via server:ci
+* jasmine:ci  -- run continuous integration tests
+* serverup    -- run server
+* serverdown  -- stop server
+
 
