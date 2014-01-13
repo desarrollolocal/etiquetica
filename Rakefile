@@ -4,11 +4,19 @@ require 'cucumber/rake/task'
 require 'jasmine'
 require 'rspec/core'
 require 'rspec/core/rake_task'
+require 'listen'
 
 desc "Run server"
 
   task :serverup do
     system "rackup -p 46308 &"
+    listener = Listen.to('spec/') do |modified, added, removed|
+      puts "modified absolute path: #{modified}"
+      puts "added absolute path: #{added}"
+      puts "removed absolute path: #{removed}"
+    end
+    listener.start
+    sleep
   end
 
   task :serverdown do
