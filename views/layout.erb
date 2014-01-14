@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Etiquetica</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <!-- Add custom CSS here -->
-        <link href="css/modern-business.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-
-        <link rel="shortcut icon" href="img/favicon.ico">
-
-    </head>
-
+    <%= erb :head %>
+   
     <body data-offset="40">
-        <header class="header">
-        </header>
+       <%= erb :header %>
 
         <div class="container">
 
             <%= yield %>
 
-            <footer class="footer"></footer>
+            <%= erb :footer %>
         </div>
-    </style>
+        <%= erb :scripts %>
     </body>
     
 </html>
