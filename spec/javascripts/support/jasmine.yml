@@ -15,6 +15,7 @@ src_files:
   - 'bootstrap.js'
   - 'modern-business.js'
   - 'app.js'
+  - 'domain.js'
   - '**/*.js'
 
 # stylesheets
