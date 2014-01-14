@@ -22,7 +22,9 @@ describe("App", function() {
             productName.val('moreThanThree');
             expect(EQ.processProductName()).toBeTruthy();
             productName.val('ltt');
-            expect(EQ.processProductName()).toBeFalsy();
+            spyOn(EQ, '_showError');
+            EQ.processProductName();
+            expect(EQ._showError).toHaveBeenCalledWith(EQ.ERRORS.SHORT);
         });
 
         it("rejects empty field", function() {
