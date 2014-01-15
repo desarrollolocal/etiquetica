@@ -14,20 +14,17 @@ describe("App", function() {
     describe("when validating product name", function() {
              
         it("requires proper length", function() {
-            spyOn(EQ, '_showMessage');
-            
-            productName.val(validInput);
-            EQ.processProductName();
-            expect(EQ._showMessage).toHaveBeenCalledWith(EQ.MESSAGES.SUCCESS, 'success');
-
+            spyOn(EQ, 'showError');
             productName.val('ltt');
             EQ.processProductName();
-            expect(EQ._showMessage).toHaveBeenCalledWith(EQ.ERRORS.SHORT, 'danger');
+            expect(EQ.showError).toHaveBeenCalledWith(EQ.MESSAGES.ERROR_SHORT);
         });
 
         it("rejects empty field", function() {
+            spyOn(EQ, 'showError');
             productName.val('');
-            expect(EQ.processProductName()).toBeFalsy();
+            EQ.processProductName();
+            expect(EQ.showError).toHaveBeenCalledWith(EQ.MESSAGES.ERROR_SHORT);
         });
     });
 
@@ -37,7 +34,7 @@ describe("App", function() {
             productName.val(validInput);
             spyOn(DOMAIN, 'saveProduct');
             EQ.processProductName();
-            expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput, EQ._showMessage); 
+            expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput, EQ.showSuccess); 
         });
     });
 
