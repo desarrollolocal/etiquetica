@@ -37,7 +37,7 @@ describe("App", function() {
             productName.val(validInput);
             spyOn(DOMAIN, 'saveProduct');
             EQ.processProductName();
-            expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput); 
+            expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput, EQ._showMessage); 
         });
     });
 

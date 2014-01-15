@@ -13,11 +13,10 @@ EQ.initialize = function(){
     EQ._productName().on('change', EQ.processProductName);
 };
 
-EQ.processProductName = function(){
+EQ.processProductName = function(onSuccess, onError) {
     var isValid = EQ.checkLength(EQ._productName());
     if (isValid) {
-        EQ._showMessage(EQ.MESSAGES.SUCCESS, 'success');
-        DOMAIN.saveProduct(EQ._productName().val());
+        DOMAIN.saveProduct(EQ._productName().val(), EQ._showMessage);
     } else {
         EQ._showMessage(EQ.ERRORS.SHORT, 'danger');
     }
@@ -31,7 +30,7 @@ EQ._showMessage = function(text, alertType) {
     var alert = $(EQ.HTML.ALERT);
     alert.addClass('alert-' + alertType);
     alert.html(text + alert.html());
-    $('body').append(alert);   
+    $('.container').append(alert);   
 };
 
 EQ._productName = function(){
