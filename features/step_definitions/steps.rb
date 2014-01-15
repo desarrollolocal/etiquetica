@@ -1,6 +1,6 @@
 
 Given(/^I am in the app$/) do
-  visit "http://localhost:3000/index.html"
+  visit '/'
 end
 
 When(/^I read the title$/) do
