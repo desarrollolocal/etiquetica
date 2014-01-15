@@ -1,9 +1,13 @@
 DOMAIN = {};
-DOMAIN.products = {};
+DOMAIN._products = {};
 
 DOMAIN.saveProduct = function (productName, callback) {
-  DOMAIN.products[productName] = {};
+  DOMAIN._products[productName] = {};
   if (typeof callback == 'function') {
     callback(EQ.MESSAGES.SUCCESS, 'success');
   }
-}
+};
+
+DOMAIN.products = function() {
+  return this._products;
+};
