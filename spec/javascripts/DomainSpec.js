@@ -1,8 +1,12 @@
 describe("Domain", function(){
+
+  beforeEach(function() {
+    jasmine.addMatchers(customMatchers);
+  });
   
   it("saves products", function(){
     DOMAIN.saveProduct('dumb product');
-    expect(DOMAIN._products.hasOwnProperty('dumb product')).toBeTruthy();
+    expect(DOMAIN.products()).toHaveOwnProperty('dumb product');
   });
 
 });
