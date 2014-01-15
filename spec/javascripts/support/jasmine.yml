@@ -11,9 +11,9 @@
 #   - dist/**/*.js
 #
 src_files:
-  - 'jquery-1.10.2.js'
-  - 'bootstrap.js'
-  - 'modern-business.js'
+  - 'vendor/jquery-1.10.2.js'
+  - 'vendor/bootstrap.js'
+  - 'vendor/modern-business.js'
   - 'app.js'
   - 'helper.js'
   - 'messages.js'
