@@ -1,9 +1,12 @@
+require 'sinatra'
 require 'rack/test' # it is needed to run rspec
 require 'capybara'
+require 'rspec'
 require 'capybara/rspec'
 include Rack::Test::Methods # It contain different method like get,  last_response etc which you use to write your test
 
 Capybara.default_driver = :selenium
+Capybara.app = Etiquetica
 
 def app
   Sinatra::Application # It is must and tell rspec that test it running is for sinatra
