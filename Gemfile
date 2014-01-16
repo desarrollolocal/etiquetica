@@ -7,6 +7,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "cucumber"
   gem "capybara"
+  gem "capybara-webkit"
   gem "rspec"
   gem "rake"
   gem "jasmine"

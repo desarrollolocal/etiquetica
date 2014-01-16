@@ -5,11 +5,13 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', '..', 'etiquetica.rb')
 
 require 'capybara'
+require 'capybara-webkit'
 require 'capybara/cucumber'
 require 'rspec'
 
 Capybara.app = Etiquetica
-Capybara.default_driver = :selenium
+Capybara.default_driver = :webkit
+Capybara.javascript_driver = :webkit
 Capybara.default_wait_time = 5
 
 class EtiqueticaWorld
