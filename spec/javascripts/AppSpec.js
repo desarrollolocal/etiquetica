@@ -29,12 +29,28 @@ describe("App", function() {
     });
 
     describe("when product name is valid", function(){
+
         it("it is saved in the product list", function(){
-            productName = $('#product-name');
             productName.val(validInput);
             spyOn(DOMAIN, 'saveProduct');
             EQ.processProductName();
             expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput, EQ.showSuccess); 
+        });
+    });
+
+    describe("when listing products", function(){
+
+        beforeEach(function() {
+            jasmine.addMatchers(customMatchers);
+        });
+
+        it("contains all saved products", function(){
+            productName.val(validInput);
+            EQ.processProductName();
+            productName.val("Huerto urbano");
+            EQ.processProductName();
+            expect(DOMAIN.products()).toHaveOwnProperty(validInput);
+            expect(DOMAIN.products()).toHaveOwnProperty("Huerto urbano");
         });
     });
 
