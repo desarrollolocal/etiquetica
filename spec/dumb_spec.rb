@@ -7,3 +7,4 @@ describe 'make API call to loanpath' do
     expect(page).to have_title 'Etiquetica'
   end
 end
+
