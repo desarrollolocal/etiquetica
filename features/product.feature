@@ -7,7 +7,7 @@ Feature: Product
     Then I should see "Producto guardado con éxito"
 
   Scenario: List products
-    Given Iam in the products page
+    Given I am in the products page
     When I fill it with "Huerto Urbano"
     And I click "Añadir"
     And I click on the show products button

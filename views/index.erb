@@ -1,18 +1,12 @@
-<div class="input-group">
-    <input type="text" id="product-name" name="product-name" class="form-control">
-    <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="new-product">Añadir</button>
-    </span>
+<div class="products">
+    <div class="row">
+        
+        <%= erb :products_aside %>
+
+        <section id="products-list" class="col-md-9">
+            <ul></ul>
+        </section>
+    </div>
 </div>
 
-
-<div class="row">
-    <section class="col-md-3">
-        <button type="button" id="list-button" class="btn btn-info">Listar productos</button>
-    </section>
-
-    <section id="products-list" class="col-md-9">
-        <ul></ul>
-    </section>
-</div>
 

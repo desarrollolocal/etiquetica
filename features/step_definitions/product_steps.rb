@@ -10,12 +10,7 @@ When(/^I click "(.*?)"$/) do |element|
   click_on element
 end
 
-Then(/^the product is saved in the products list$/) do
-  
-end
-
-
-Given(/^Iam in the products page$/) do
+Given(/^I am in the products page$/) do
   visit '/'
 end
 

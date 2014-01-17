@@ -1,4 +1,3 @@
-
 var EQ = {};
 
 EQ.NAME_MINIMUM_LENGTH = 3;
@@ -14,14 +13,18 @@ EQ.processProductName = function() {
 
 EQ.showProducts = function() {
     var products = DOMAIN.products();
-    var $productList = $('#products-list ul');
-    $productList.html('');
-    $(document).on('click', '#list-button', EQ._addProductsToPage(products, $productList));
+    var $productsSection = $('#products-list ul');
+    $productsSection.html('');
+    $(document).on('click', '#list-button', EQ._addProductsToPage(products, $productsSection));
 };
 
-EQ._addProductsToPage = function(products, productList) {
+EQ._addProductsToPage = function(products, productsSection) {
+    if(Object.getOwnPropertyNames(products).length == 0) {
+        productsSection.text('No hay ningún producto');
+    }
+
     $.each(products, function(index, val) {
-        productList.append('<li></li>');
+        productsSection.append('<li></li>');
         $('#products-list ul li:last').text(index);
     });
 };

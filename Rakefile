@@ -32,7 +32,10 @@ begin
   require 'rspec/core'
   require 'rspec/core/rake_task'
   desc "Run all specs in spec directory (excluding plugin specs)"
-  RSpec::Core::RakeTask.new(:spec)
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.fail_on_error = false
+    t.rspec_opts = "--color --format documentation"
+  end
 end
 
 begin

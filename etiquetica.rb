@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'mongoid'
+require_relative 'lib/product'
 
 class Etiquetica < Sinatra::Base
 
@@ -9,6 +10,7 @@ class Etiquetica < Sinatra::Base
   end
 
   get '/' do
+    @products = Product.all
     erb :index
   end
   
