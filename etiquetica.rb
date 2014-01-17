@@ -6,12 +6,7 @@ require 'mongoid'
 class Etiquetica < Sinatra::Base
 
   configure do
-    Mongoid.configure do |config|
-      name = 'etiquetica'
-      host = 'localhost'
-      config.master = Mongo::Connection.new.db(name)
-      config.persist_in_safe_mode = false
-    end
+    Mongoid.load!('mongoid.yml')
   end
 
   get '/' do
