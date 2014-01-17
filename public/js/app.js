@@ -13,24 +13,28 @@ EQ.processProductName = function() {
 
 EQ.showProducts = function() {
     var products = DOMAIN.products();
-    var $productsSection = $('#products-list ul');
-    $productsSection.html('');
-    $(document).on('click', '#list-button', EQ._addProductsToPage(products, $productsSection));
+    $(document).on('click', '#list-button', EQ._addProductsToPage(products));
 };
 
-EQ._addProductsToPage = function(products, productsSection) {
-    if(Object.getOwnPropertyNames(products).length == 0) {
-        productsSection.text('No hay ningún producto');
+EQ._addProductsToPage = function(products) {
+    var $productsSection = $('#products-list ul');
+    $productsSection.html('');
+    if(EQ._isEmpty(products)) {
+        $productsSection.text('No hay ningún producto');
     }
 
     $.each(products, function(index, val) {
-        productsSection.append('<li></li>');
+        $productsSection.append('<li></li>');
         $('#products-list ul li:last').text(index);
     });
 };
 
 EQ._productName = function(){
     return $('#product-name');
+};
+
+EQ._isEmpty = function(object) {
+    return Object.getOwnPropertyNames(object).length == 0;
 };
 
 EQ._productList = function(){

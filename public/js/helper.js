@@ -15,5 +15,5 @@ EQ._showMessage = function(text, alertType) {
     var alert = $(EQ.HTML.ALERT);
     alert.addClass('alert-' + alertType);
     alert.html(text + alert.html());
-    $('.container').append(alert);   
+    $('.products-aside').append(alert);   
 };
