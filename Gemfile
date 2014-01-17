@@ -11,6 +11,7 @@ group :development, :test do
   gem "capybara"
   gem "capybara-webkit"
   gem "rspec"
+  gem 'mongoid-rspec'
   gem "rake"
   gem "jasmine"
   gem "listen"

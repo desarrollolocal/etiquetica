@@ -52,6 +52,10 @@ GEM
       moped (~> 1.2)
       origin (~> 1.0)
       tzinfo (~> 0.3.22)
+    mongoid-rspec (1.10.0)
+      mongoid (>= 3.0.1)
+      rake
+      rspec (>= 2.14)
     moped (1.5.1)
     multi_json (1.8.4)
     multi_test (0.0.3)
@@ -108,6 +112,7 @@ DEPENDENCIES
   jasmine
   listen
   mongoid (~> 3.0.0)
+  mongoid-rspec
   rake
   rspec
   selenium-webdriver
