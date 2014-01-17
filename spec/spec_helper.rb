@@ -1,23 +1,35 @@
 require 'sinatra'
-require 'rack/test' # it is needed to run rspec
+require 'rack/test'
 require 'capybara'
 require 'capybara-webkit'
 require 'rspec'
 require 'capybara/rspec'
-include Rack::Test::Methods # It contain different method like get,  last_response etc which you use to write your test
+include Rack::Test::Methods
 
 Capybara.default_driver = :webkit
 Capybara.app = Etiquetica
 
 def app
-  Sinatra::Application # It is must and tell rspec that test it running is for sinatra
+  Sinatra::Application
+
+  set :environment, :test
 end
 
-set :environment, :test # setting the environment in which the test will run
-
 RSpec.configure do |config|
+
+  config.before(:each) do
+    @db = Mongo::Connection.new("localhost", 27017).db("etiquetica_test")
+    Mongo::DB.stub(:new).and_return { @db }
+  end
+
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
   config.include Capybara::DSL
+
+  config.after(:each) do
+    @db.collections.each do |coll|
+      coll.drop unless coll.name =~ /^system\./
+    end
+  end
 end
