@@ -4,9 +4,12 @@ describe("Domain", function(){
     jasmine.addMatchers(customMatchers);
   });
   
-  it("saves products", function(){
+  xit("saves products", function(){
+
     DOMAIN.saveProduct('dumb product');
-    expect(DOMAIN.products()).toHaveOwnProperty('dumb product');
+    var products = DOMAIN.products();
+    console.log(products);
+    expect(products[0]).toHaveOwnProperty('dumb product');
   });
 
 });

@@ -1,4 +1,10 @@
-.products { margin-top: 2.5em; }
-    .products-aside { margin-bottom: 2.5em; } 
+ul { list-style: none; }
 
-.input-group { margin-bottom: 2em; }
+.products { margin-top: 2.5em; }
+    .products-aside { margin-bottom: 2.5em; }
+.products a {
+    font-size: 2em;
+    color: #000;    
+}
+
+.btn { margin-bottom: 1.5em; }

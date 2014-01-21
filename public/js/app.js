@@ -12,29 +12,46 @@ EQ.processProductName = function() {
 };
 
 EQ.showProducts = function() {
-    var products = DOMAIN.products();
-    $(document).on('click', '#list-button', EQ._addProductsToPage(products));
+    $(document).on('click', '#list-button', EQ._addProductsToPage);
+    $.ajax({
+      dataType: "json",
+      url: '/products',
+      async: false,
+      success: function(products) {
+         var $productsSection = $('#products-list ul');
+         $productsSection.html('');
+         if(EQ._isEmpty(products)) {
+            $productsSection.text(EQ.MESSAGES.NO_PRODUCTS);
+        }
+
+        EQ._addProductsToPage(products);
+        $.each(products, function(index, val) {
+            var name = products[index].name;
+            var uri = EQ._nameToURI(name);
+            $productsSection.append('<li class="list-group-item"><a href="' + uri + '"></a></li>');
+            $('#products-list ul li a:last').text(products[index].name);
+            $('#products-list ul li').append(products[index].creation_date);
+
+        });
+        }
+    });
 };
 
 EQ._addProductsToPage = function(products) {
-    var $productsSection = $('#products-list ul');
-    $productsSection.html('');
-    if(EQ._isEmpty(products)) {
-        $productsSection.text('No hay ningún producto');
-    }
 
-    $.each(products, function(index, val) {
-        $productsSection.append('<li></li>');
-        $('#products-list ul li:last').text(index);
-    });
+
 };
+
+EQ._nameToURI = function(name) {
+    return name.split(' ').join('-');
+}
 
 EQ._productName = function(){
     return $('#product-name');
 };
 
-EQ._isEmpty = function(object) {
-    return Object.getOwnPropertyNames(object).length == 0;
+EQ._isEmpty = function(products) {
+    return products.length == 0;
 };
 
 EQ._productList = function(){

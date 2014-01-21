@@ -21,3 +21,12 @@ end
 Then (/^I should see "([^"]*)"$/) do |text|
   page.should have_content text
 end
+
+
+When(/^I click on a product$/) do
+  click_on 'Huerto Urbano'
+end
+
+Then(/^I should see the product name in the title$/) do
+  find('#product-header').find('h1').should have_content("Huerto Urbano") 
+end

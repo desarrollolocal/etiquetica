@@ -9,7 +9,7 @@ require 'capybara/rspec'
 include Rack::Test::Methods
 
 Capybara.default_driver = :webkit
-Capybara.app = Etiquetica
+Capybara.app = Sinatra::Application
 
 set :environment, :test
 

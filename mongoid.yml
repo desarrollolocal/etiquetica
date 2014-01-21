@@ -7,7 +7,7 @@ development:
 test:
   sessions:
     default:
-      database: sack_test
+      database: etiquetica_test
       hosts:
         - localhost:27017
       options:
