@@ -4,7 +4,10 @@ ul { list-style: none; }
     .products-aside { margin-bottom: 2.5em; }
 .products a {
     font-size: 2em;
-    color: #000;    
+    color: #000;
+    float: left;
 }
+
+.creation-date { float: right; }
 
 .btn { margin-bottom: 1.5em; }

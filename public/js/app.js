@@ -21,16 +21,16 @@ EQ.showProducts = function() {
          var $productsSection = $('#products-list ul');
          $productsSection.html('');
          if(EQ._isEmpty(products)) {
-            $productsSection.text(EQ.MESSAGES.NO_PRODUCTS);
+            $productsSection.html(EQ.MESSAGES.NO_PRODUCTS);
         }
 
         EQ._addProductsToPage(products);
         $.each(products, function(index, val) {
             var name = products[index].name;
             var uri = EQ._nameToURI(name);
-            $productsSection.append('<li class="list-group-item"><a href="' + uri + '"></a></li>');
+            $productsSection.append('<li class="list-group-item clearfix"><a href="' + uri + '"></a></li>');
             $('#products-list ul li a:last').text(products[index].name);
-            $('#products-list ul li').append(products[index].creation_date);
+            $('#products-list ul li').append('<span class="creation-date">' + products[index].creation_date + '</span>');
 
         });
         }
