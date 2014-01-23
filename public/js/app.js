@@ -32,7 +32,7 @@ EQ.showProducts = function() {
 
         $productsSection.append('<li class="list-group-item clearfix"><a href="' + uri + '"></a></li>');
         $('#products-list ul li a:last').text(products[index].name);
-        $('#products-list ul li:last').append('<span class="creation-date">' + spanishDate + '</span>');
+        $('#products-list ul li').append('<span class="creation-date">' + spanishDate + '</span>');
     });
 }
 });
