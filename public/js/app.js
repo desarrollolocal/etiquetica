@@ -18,23 +18,24 @@ EQ.showProducts = function() {
       url: '/products',
       async: false,
       success: function(products) {
-         var $productsSection = $('#products-list ul');
-         $productsSection.html('');
-         if(EQ._isEmpty(products)) {
-            $productsSection.html(EQ.MESSAGES.NO_PRODUCTS);
-        }
+       var $productsSection = $('#products-list ul');
+       $productsSection.html('');
+       if(EQ._isEmpty(products)) {
+        $productsSection.html(EQ.MESSAGES.NO_PRODUCTS);
+    }
 
-        EQ._addProductsToPage(products);
-        $.each(products, function(index, val) {
-            var name = products[index].name;
-            var uri = EQ._nameToURI(name);
-            $productsSection.append('<li class="list-group-item clearfix"><a href="' + uri + '"></a></li>');
-            $('#products-list ul li a:last').text(products[index].name);
-            $('#products-list ul li').append('<span class="creation-date">' + products[index].creation_date + '</span>');
+    $.each(products, function(index, val) {
+        var name = products[index].name;
+        var uri = EQ._nameToURI(name);
+        var date = new Date(products[index].creation_date);
+        var spanishDate = EQ._toSpanishDate(date);
 
-        });
-        }
+        $productsSection.append('<li class="list-group-item clearfix"><a href="' + uri + '"></a></li>');
+        $('#products-list ul li a:last').text(products[index].name);
+        $('#products-list ul li').append('<span class="creation-date">' + spanishDate + '</span>');
     });
+}
+});
 };
 
 EQ._addProductsToPage = function(products) {

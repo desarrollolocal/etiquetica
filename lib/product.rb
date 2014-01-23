@@ -2,8 +2,7 @@ class Product
   include Mongoid::Document
   
   field :name, type: String
-  field :creation_date, type: Time, default: ->{ Time.now }
-
+  field :creation_date, type: Time, default: ->{ Time.now.to_i }
 
   validates_presence_of [:name, :creation_date]
   validates_uniqueness_of :name
