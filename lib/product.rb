@@ -5,7 +5,6 @@ class Product
   
   field :name, type: String
   field :creation_date, type: Time, default: ->{ Time.now.to_i }
-  #field :indicator, type: String, default: "empty"
 
   embeds_many :indicators
 
