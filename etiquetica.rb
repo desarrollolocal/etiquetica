@@ -4,7 +4,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/json'
 require 'mongoid'
-require 'sinatra/flash'
+require 'rack-flash'
 
 require_relative 'lib/product'
 
@@ -15,7 +15,7 @@ class Etiquetica < Sinatra::Base
   end
 
   enable :sessions
-  register Sinatra::Flash
+  use Rack::Flash
 
   get '/' do
     @products = Product.all
@@ -33,6 +33,7 @@ class Etiquetica < Sinatra::Base
       flash[:success] = "Producto guardado con éxito."
     else
       flash[:error] = "El producto ya existe."
+      flash[:error]
     end
 
     redirect '/'

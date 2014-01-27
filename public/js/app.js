@@ -34,7 +34,7 @@ EQ.showProducts = function() {
             $productsSection.append('<li class="list-group-item clearfix"><a href="' + uri + '"></a></li>');
             $('#products-list ul li a:last').text(products[index].name);
             $('#products-list ul li:last').append('<span class="creation-date">' + spanishDate + '</span>');
-            $('#products-list ul li:last').append('<aside class="indicators">Sostenibilidad Ecológica</aside>');
+            $('#products-list ul li:last').append('<aside class="indicators">' + indicators[0].name + '</aside>');
             $('.indicators:last').append('<div class="indicator ' + indicators[0].state + '"></div>');
             });
         }

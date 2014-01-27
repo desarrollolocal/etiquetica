@@ -18,7 +18,7 @@ ul { list-style: none; }
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    float: right;
     margin-left: 1em;
+    display: inline-block;
 }
     .empty { background: grey; }

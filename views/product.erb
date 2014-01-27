@@ -3,6 +3,6 @@
     <p><%= @product.creation_date %></p>
     <% @product.indicators.each do |indicator| %>
         <%= indicator.name %>
-        <div class="indicator <%= indicator.state %>" ></div>
+        <span class="indicator <%= indicator.state %>" ></span>
     <% end %>
 </header>
