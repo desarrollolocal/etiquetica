@@ -8,9 +8,12 @@
 
     <button type="button" id="list-button" class="btn btn-info">Listar productos</button>
 
-    <div class="flash error"></div>
+    <div class="flash">
+        <%= flash[:error] %>
+        <%= flash[:success] %>
+    </div>
 
-            <%= styled_flash %>
+            
 
 
 </section>

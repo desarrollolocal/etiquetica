@@ -1,4 +1,8 @@
 <header id="product-header">
     <h1><%= @product.name %></h1>
     <p><%= @product.creation_date %></p>
+    <% @product.indicators.each do |indicator| %>
+        <%= indicator.name %>
+        <div class="indicator <%= indicator.state %>" ></div>
+    <% end %>
 </header>

@@ -31,10 +31,11 @@ class Etiquetica < Sinatra::Base
     @product = Product.new(name: params[:name])
     if @product.save
       flash[:success] = "Producto guardado con éxito."
-      erb :index
     else
       flash[:error] = "El producto ya existe."
     end
+
+    redirect '/'
   end
 
   get '/:name' do |name|
