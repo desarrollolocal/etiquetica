@@ -1,12 +1,24 @@
 ul { list-style: none; }
 
 .products { margin-top: 2.5em; }
-    .products-aside { margin-bottom: 2.5em; }
+    .products-aside { }
+    #products-list {  }
 .products a {
     font-size: 2em;
     color: #000;
+
 }
 
-.creation-date { float: right; }
+.creation-date { display: block;  float: right;}
+.indicators { display: flex; }
 
 .btn { margin-bottom: 1.5em; }
+
+.indicator { 
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+    margin-left: 1em;
+}
+    .empty { background: grey; }
