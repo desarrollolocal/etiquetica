@@ -3,7 +3,7 @@ DOMAIN._products = {};
 
 DOMAIN.saveProduct = function (productName, callback) {
   $.ajax({
-    url: '/new',
+    url: '/',
     type: 'POST',
     dataType: 'json',
     data: {name: productName},

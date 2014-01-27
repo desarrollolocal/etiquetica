@@ -1,5 +1,16 @@
 <section class="products-aside col-md-3">
-    <h3>Añadir un producto</h3>
+    
+    <header>
+        <h3>Añadir un producto</h3>        
+    </header>
+
     <%= erb :product_form %>
+
     <button type="button" id="list-button" class="btn btn-info">Listar productos</button>
+
+    <div class="flash error"></div>
+
+            <%= styled_flash %>
+
+
 </section>

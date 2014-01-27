@@ -1,7 +1,11 @@
+# encoding: utf-8
+
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/json'
 require 'mongoid'
+require 'sinatra/flash'
+
 require_relative 'lib/product'
 
 class Etiquetica < Sinatra::Base
@@ -9,6 +13,9 @@ class Etiquetica < Sinatra::Base
   configure do
     Mongoid.load!('mongoid.yml')
   end
+
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     @products = Product.all
@@ -20,10 +27,13 @@ class Etiquetica < Sinatra::Base
     json @products
   end
 
-  post '/new' do
+  post '/' do
     @product = Product.new(name: params[:name])
     if @product.save
-      redirect '/'
+      flash[:success] = "Producto guardado con éxito."
+      erb :index
+    else
+      flash[:error] = "El producto ya existe."
     end
   end
 
