@@ -5,7 +5,7 @@ gem 'sinatra-contrib'
 gem "thin"
 gem "mongoid", '~> 3.0.0'
 gem 'builder'
-gem "rack-flash3"
+gem "sinatra-flash"
 
 group :development, :test do
   gem "selenium-webdriver"

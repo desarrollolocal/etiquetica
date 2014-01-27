@@ -4,7 +4,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/json'
 require 'mongoid'
-require 'rack-flash'
+require 'sinatra/flash'
 
 require_relative 'lib/product'
 
@@ -15,7 +15,7 @@ class Etiquetica < Sinatra::Base
   end
 
   enable :sessions
-  use Rack::Flash
+  register Sinatra::Flash
 
   get '/' do
     @products = Product.all
