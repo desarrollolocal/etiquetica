@@ -16,19 +16,6 @@ DOMAIN.saveProduct = function (productName, callback) {
   }
 };
 
-DOMAIN.getProducts = function () {
-  var query = $.ajax({
-    url: '/products',
-    dataType: 'json',
-    async: false,
-    success: function(data, textStatus, xhr) {
-      return data;
-    }
-  });
-
-  return query.responseText;
-};
-
 DOMAIN.products = function() {
   var query = $.ajax({
     url: '/products',

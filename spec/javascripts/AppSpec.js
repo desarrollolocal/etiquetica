@@ -51,6 +51,7 @@ describe("App", function() {
             EQ.processProductName();
 
             var products = DOMAIN.products();
+            console.log(products);
             expect(products[0]).toHaveOwnProperty(validInput);
             expect(products[1]).toHaveOwnProperty("Huerto urbano");
         });
