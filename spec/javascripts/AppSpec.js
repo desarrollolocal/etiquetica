@@ -5,6 +5,9 @@ describe("App", function() {
     var input = '<input id="product-name" type="text"></input>';
     var validInput = 'moreThanThreeLetters';
 
+    var domain = {getProducts: function() {return [{name : "Dumb Product"}, {name : "Dumber Product"}]},
+                  saveProduct : function(productName, callback) {callback()}};
+
     beforeEach(function(){
         $('body').append(html2test);
         $('#html2test').append(input);
@@ -30,11 +33,11 @@ describe("App", function() {
 
     describe("when product name is valid", function(){
 
-        it("it is saved in the product list", function(){
+        xit("it is saved in the product list", function(){
             productName.val(validInput);
-            spyOn(DOMAIN, 'saveProduct');
+            spyOn(domain, 'saveProduct');
             EQ.processProductName();
-            expect(DOMAIN.saveProduct).toHaveBeenCalledWith(validInput, EQ.showSuccess); 
+            expect(domain.saveProduct).toHaveBeenCalledWith(validInput, EQ.showSuccess); 
         });
     });
 
@@ -45,13 +48,11 @@ describe("App", function() {
         });
 
         xit("contains all saved products", function(){
-            productName.val(validInput);
-            EQ.processProductName();
-            productName.val("Huerto urbano");
-            EQ.processProductName();
+            var productsListDOM = '<ul class="list-group">';
+            var productLine = '<li class="list-group-item"></li>'
 
-            var products = DOMAIN.products();
-            console.log(products);
+            var products = domain.getProducts();
+
             expect(products[0]).toHaveOwnProperty(validInput);
             expect(products[1]).toHaveOwnProperty("Huerto urbano");
         });

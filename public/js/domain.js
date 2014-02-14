@@ -1,7 +1,6 @@
-DOMAIN = {};
-DOMAIN._products = {};
+(function(global) {
 
-DOMAIN.saveProduct = function (productName, callback) {
+var _saveProduct = function (productName, callback) {
   $.ajax({
     url: '/',
     type: 'POST',
@@ -16,7 +15,7 @@ DOMAIN.saveProduct = function (productName, callback) {
   }
 };
 
-DOMAIN.products = function() {
+var _getProducts = function() {
   var query = $.ajax({
     url: '/products',
     dataType: 'json',
@@ -28,3 +27,10 @@ DOMAIN.products = function() {
 
   return query.responseText;
 };
+
+  global.domain = {
+    saveProduct : _saveProduct,
+    getProducts : _getProducts
+  };
+
+}(this));

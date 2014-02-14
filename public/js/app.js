@@ -5,7 +5,7 @@ EQ.NAME_MINIMUM_LENGTH = 3;
 EQ.processProductName = function() {
     var isValid = EQ.checkLength(EQ._productName(),EQ.NAME_MINIMUM_LENGTH);
     if (isValid) {
-        DOMAIN.saveProduct(EQ._productName().val(), EQ.showSuccess);
+        domain.saveProduct(EQ._productName().val(), EQ.showSuccess);
     } else {
         EQ.showError(EQ.MESSAGES.ERROR_SHORT);
     }

@@ -5,8 +5,8 @@ describe("Domain", function(){
   });
   
   xit("saves products", function() {
-    DOMAIN.saveProduct('dumb product');
-    var products = DOMAIN.products();
+    domain.saveProduct('dumb product');
+    var products = domain.getProducts();
     expect(products[0]).toHaveOwnProperty('dumb product');
   });
 
