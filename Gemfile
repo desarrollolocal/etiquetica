@@ -16,4 +16,5 @@ group :development, :test do
   gem 'mongoid-rspec'
   gem "rake"
   gem "jasmine"
+  gem "pry"
 end
