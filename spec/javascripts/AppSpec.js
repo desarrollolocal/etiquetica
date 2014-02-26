@@ -5,9 +5,6 @@ describe("App", function() {
     var input = '<input id="product-name" type="text"></input>';
     var validInput = 'moreThanThreeLetters';
 
-    var domain = {getProducts: function() {return [{name : "Dumb Product"}, {name : "Dumber Product"}]},
-                  saveProduct : function(productName, callback) {callback()}};
-
     beforeEach(function(){
         $('body').append(html2test);
         $('#html2test').append(input);
@@ -19,24 +16,24 @@ describe("App", function() {
         it("requires proper length", function() {
             spyOn(EQ, 'showError');
             productName.val('ltt');
-            EQ.processProductName();
+            EQ.addProduct();
             expect(EQ.showError).toHaveBeenCalledWith(EQ.MESSAGES.ERROR_SHORT);
         });
 
         it("rejects empty field", function() {
             spyOn(EQ, 'showError');
             productName.val('');
-            EQ.processProductName();
+            EQ.addProduct();
             expect(EQ.showError).toHaveBeenCalledWith(EQ.MESSAGES.ERROR_SHORT);
         });
     });
 
     describe("when product name is valid", function(){
 
-        xit("it is saved in the product list", function(){
-            productName.val(validInput);
+        it("it is saved in the product list", function(){
             spyOn(domain, 'saveProduct');
-            EQ.processProductName();
+            productName.val(validInput);
+            EQ.addProduct();
             expect(domain.saveProduct).toHaveBeenCalledWith(validInput, EQ.showSuccess); 
         });
     });
@@ -47,14 +44,13 @@ describe("App", function() {
             jasmine.addMatchers(customMatchers);
         });
 
-        xit("contains all saved products", function(){
+        it("contains all saved products", function(){
+            spyOn(domain, 'getProducts').and.returnValue({"name": validInput});
             var productsListDOM = '<ul class="list-group">';
-            var productLine = '<li class="list-group-item"></li>'
+            var productLine = '<li class="list-group-item"></li>';
 
-            var products = domain.getProducts();
-
-            expect(products[0]).toHaveOwnProperty(validInput);
-            expect(products[1]).toHaveOwnProperty("Huerto urbano");
+            EQ.showProducts();
+            expect(domain.getProducts).toHaveBeenCalled();
         });
     });
 

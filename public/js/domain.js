@@ -1,3 +1,5 @@
+EQ = EQ || {};
+
 (function(global) {
 
 var _saveProduct = function (productName, callback) {
@@ -15,17 +17,13 @@ var _saveProduct = function (productName, callback) {
   }
 };
 
-var _getProducts = function() {
+var _getProducts = function(callback) {
   var query = $.ajax({
     url: '/products',
     dataType: 'json',
-    async: false,
-    success: function(data, textStatus, xhr) {
-      return data;
-    }
+    success: callback
   });
 
-  return query.responseText;
 };
 
   global.domain = {
